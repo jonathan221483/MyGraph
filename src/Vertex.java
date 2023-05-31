@@ -3,7 +3,7 @@ import java.util.Map;
 public class Vertex<O> {
     private O data;
     private Map<Vertex<O>, Double> adjacentVertices;
-    private Vertex(O data) {
+    public Vertex(O data) {
         this.data = data;
         this.adjacentVertices = new HashMap<>();
     }
@@ -28,6 +28,10 @@ public class Vertex<O> {
     }
     public boolean contains(Vertex<O> vertex) {
         return adjacentVertices.containsKey(vertex);
+    }
+
+    public O toStr() {
+        return data;
     }
 
 }
