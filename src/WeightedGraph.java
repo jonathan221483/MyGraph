@@ -28,13 +28,16 @@ public class WeightedGraph<O> {
         }
     }
 
-    private void validateVertex(Vertex index) {
-        if (!vertices.containsKey(index)) {
-            throw new IllegalArgumentException("Vertex " + index + " is out of the range");
+    private void validateVertex(Vertex vertex) {
+        if (!vertices.containsKey(vertex)) {
+            throw new IllegalArgumentException("Vertex " + vertex.toStr() + " is out of the range");
         }
     }
     public void addVertex(Vertex<O> vertex) {
         vertices.put(vertex, new LinkedList<>());
+    }
+    public void removeVertex(Vertex<O> vertex) {
+        vertices.remove(vertex);
     }
     public void addEdge(Vertex source, Vertex dest, double weight){
         validateVertex(source);

@@ -9,7 +9,7 @@ public class Vertex<O> {
     }
     public void validateVertex(Vertex<O> vertex) {
         if (!adjacentVertices.containsKey(vertex)) {
-            throw new IllegalArgumentException("Vertex " + vertex + " is out of the range");
+            throw new IllegalArgumentException("Vertex " + vertex.toStr() + " is out of the range");
         }
     }
     public void addVertex(Vertex<O> dest, double weight) {
@@ -26,6 +26,7 @@ public class Vertex<O> {
         validateVertex(vertex);
         return adjacentVertices.get(vertex);
     }
+
     public boolean contains(Vertex<O> vertex) {
         return adjacentVertices.containsKey(vertex);
     }
