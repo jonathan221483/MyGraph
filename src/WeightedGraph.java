@@ -43,9 +43,13 @@ public class WeightedGraph<O> {
         edge.add(new Edge<O>(source, dest, weight));
         vertices.put(source, edge);
     }
+    public List<Edge<O>> getEdge(Vertex<O> vertex) {
+        validateVertex(vertex);
+        return vertices.get(vertex);
+    }
+
 
     public void printGraph() {
-        System.out.println("all edges");
         System.out.println("Source | Destination | Weight");
         for (List<Edge<O>> edges : vertices.values()) {
             for (Edge<O> edge : edges) {
@@ -53,6 +57,4 @@ public class WeightedGraph<O> {
             }
         }
     }
-
-
 }
