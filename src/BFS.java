@@ -3,9 +3,9 @@ public class BFS<O> implements Search<O>{
     private WeightedGraph<O> graph;
     public BFS(WeightedGraph<O> graph) {
         this.graph = graph;
-    }
+    } //constructor for bfs
     @Override
-    public List<O> search(Vertex<O> start, Vertex<O> finish) {
+    public List<O> search(Vertex<O> start, Vertex<O> finish) { //bfs algorithm overrides the search method from interface
         List<Vertex<O>> path = new ArrayList<>();
         Queue<Vertex<O>> queue = new LinkedList<>();
         Map<Vertex<O>, Vertex<O>> parentMap = new HashMap<>();
@@ -13,7 +13,7 @@ public class BFS<O> implements Search<O>{
         queue.offer(start);
         parentMap.put(start, null);
 
-        while (!queue.isEmpty()) {
+        while (!queue.isEmpty()) { //
             Vertex<O> currentVertex = queue.poll();
             if (currentVertex.equals(finish)) {
                 path.add(finish);
